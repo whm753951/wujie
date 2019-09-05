@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.PlateMapper">
+  <resultMap id="BaseResultMap" type="cn.whm.entity.Plate">
+    <id column="plateid" jdbcType="INTEGER" property="plateid" />
+    <result column="platename" jdbcType="VARCHAR" property="platename" />
+    <result column="platepdf" jdbcType="VARCHAR" property="platepdf" />
+    <result column="platephone" jdbcType="VARCHAR" property="platephone" />
+    <result column="platepaperid" jdbcType="INTEGER" property="platepaperid" />
+    <result column="plate1" jdbcType="VARCHAR" property="plate1" />
+    <result column="plate2" jdbcType="VARCHAR" property="plate2" />
+    <result column="plate3" jdbcType="VARCHAR" property="plate3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    plateid, platename, platepdf, platephone, platepaperid, plate1, plate2, plate3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from plate
+    where plateid = #{plateid,jdbcType=INTEGER}
+  </select>
+  <select id="selectPlateBypaperId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from plate
+    where platepaperid = #{platepaperid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from plate
+    where plateid = #{plateid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.whm.entity.Plate">
+    insert into plate (plateid, platename, platepdf, 
+      platephone, platepaperid, plate1, 
+      plate2, plate3)
+    values (#{plateid,jdbcType=INTEGER}, #{platename,jdbcType=VARCHAR}, #{platepdf,jdbcType=VARCHAR}, 
+      #{platephone,jdbcType=VARCHAR}, #{platepaperid,jdbcType=INTEGER}, #{plate1,jdbcType=VARCHAR}, 
+      #{plate2,jdbcType=VARCHAR}, #{plate3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.whm.entity.Plate">
+    insert into plate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="plateid != null">
+        plateid,
+      </if>
+      <if test="platename != null">
+        platename,
+      </if>
+      <if test="platepdf != null">
+        platepdf,
+      </if>
+      <if test="platephone != null">
+        platephone,
+      </if>
+      <if test="platepaperid != null">
+        platepaperid,
+      </if>
+      <if test="plate1 != null">
+        plate1,
+      </if>
+      <if test="plate2 != null">
+        plate2,
+      </if>
+      <if test="plate3 != null">
+        plate3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="plateid != null">
+        #{plateid,jdbcType=INTEGER},
+      </if>
+      <if test="platename != null">
+        #{platename,jdbcType=VARCHAR},
+      </if>
+      <if test="platepdf != null">
+        #{platepdf,jdbcType=VARCHAR},
+      </if>
+      <if test="platephone != null">
+        #{platephone,jdbcType=VARCHAR},
+      </if>
+      <if test="platepaperid != null">
+        #{platepaperid,jdbcType=INTEGER},
+      </if>
+      <if test="plate1 != null">
+        #{plate1,jdbcType=VARCHAR},
+      </if>
+      <if test="plate2 != null">
+        #{plate2,jdbcType=VARCHAR},
+      </if>
+      <if test="plate3 != null">
+        #{plate3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.whm.entity.Plate">
+    update plate
+    <set>
+      <if test="platename != null">
+        platename = #{platename,jdbcType=VARCHAR},
+      </if>
+      <if test="platepdf != null">
+        platepdf = #{platepdf,jdbcType=VARCHAR},
+      </if>
+      <if test="platephone != null">
+        platephone = #{platephone,jdbcType=VARCHAR},
+      </if>
+      <if test="platepaperid != null">
+        platepaperid = #{platepaperid,jdbcType=INTEGER},
+      </if>
+      <if test="plate1 != null">
+        plate1 = #{plate1,jdbcType=VARCHAR},
+      </if>
+      <if test="plate2 != null">
+        plate2 = #{plate2,jdbcType=VARCHAR},
+      </if>
+      <if test="plate3 != null">
+        plate3 = #{plate3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where plateid = #{plateid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.whm.entity.Plate">
+    update plate
+    set platename = #{platename,jdbcType=VARCHAR},
+      platepdf = #{platepdf,jdbcType=VARCHAR},
+      platephone = #{platephone,jdbcType=VARCHAR},
+      platepaperid = #{platepaperid,jdbcType=INTEGER},
+      plate1 = #{plate1,jdbcType=VARCHAR},
+      plate2 = #{plate2,jdbcType=VARCHAR},
+      plate3 = #{plate3,jdbcType=VARCHAR}
+    where plateid = #{plateid,jdbcType=INTEGER}
+  </update>
+</mapper>

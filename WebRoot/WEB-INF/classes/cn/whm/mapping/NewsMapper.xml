@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.NewsMapper">
+	<resultMap id="BaseResultMap" type="cn.whm.entity.News">
+		<id column="newsid" jdbcType="INTEGER" property="newsid" />
+		<result column="newstitle" jdbcType="VARCHAR"
+			property="newstitle" />
+		<result column="newstime" jdbcType="TIMESTAMP"
+			property="newstime" />
+		<result column="newslaiyuan" jdbcType="VARCHAR"
+			property="newslaiyuan" />
+		<result column="newsauthor" jdbcType="VARCHAR"
+			property="newsauthor" />
+		<result column="newsphoto" jdbcType="VARCHAR"
+			property="newsphoto" />
+		<result column="newstype" jdbcType="VARCHAR"
+			property="newstype" />
+		<result column="newszebian" jdbcType="VARCHAR"
+			property="newszebian" />
+		<result column="newsplateid" jdbcType="INTEGER"
+			property="newsplateid" />
+		<result column="newspaixu" jdbcType="INTEGER"
+			property="newspaixu" />
+		<result column="news1" jdbcType="VARCHAR" property="news1" />
+		<result column="nwes2" jdbcType="VARCHAR" property="nwes2" />
+		<result column="news3" jdbcType="VARCHAR" property="news3" />
+	</resultMap>
+	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
+		type="cn.whm.entity.News">
+		<result column="newsneirong" jdbcType="LONGVARCHAR"
+			property="newsneirong" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		newsid, newstitle, newstime, newslaiyuan, newsauthor, newsphoto, newstype,
+		newszebian,
+		newsplateid, newspaixu, news1, nwes2, news3
+	</sql>
+	<sql id="Blob_Column_List">
+		newsneirong
+	</sql>
+	<select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from news
+		where newsid = #{newsid,jdbcType=INTEGER}
+	</select>
+	<select id="selectNewsByPage" resultMap="ResultMapWithBLOBs"
+		parameterType="cn.whm.util.Page">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from news LIMIT #{firstIndex},#{totalSize}
+	</select>
+	<select id="countNewsBypage"  resultMap="java.lang.Integer">
+		select
+		count(*)
+		from news
+	</select>
+	
+	<select id="selectNewsByPageAndType" resultMap="ResultMapWithBLOBs"
+		parameterType="cn.whm.util.Page">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from news where newstype=#{newstype,jdbcType=VARCHAR}  LIMIT #{firstIndex},#{totalSize} 
+	</select>
+	<select id="selectNewsByplateid"
+		parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from news
+		where newsplateid = #{newsplateid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from news
+		where newsid = #{newsid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="cn.whm.entity.News">
+		insert into news (newsid, newstitle, newstime,
+		newslaiyuan, newsauthor, newsphoto,
+		newstype, newszebian, newsplateid,
+		newspaixu, news1, nwes2,
+		news3, newsneirong)
+		values (#{newsid,jdbcType=INTEGER}, #{newstitle,jdbcType=VARCHAR},
+		#{newstime,jdbcType=TIMESTAMP},
+		#{newslaiyuan,jdbcType=VARCHAR}, #{newsauthor,jdbcType=VARCHAR}, #{newsphoto,jdbcType=VARCHAR},
+		#{newstype,jdbcType=VARCHAR}, #{newszebian,jdbcType=VARCHAR},
+		#{newsplateid,jdbcType=INTEGER},
+		#{newspaixu,jdbcType=INTEGER}, #{news1,jdbcType=VARCHAR}, #{nwes2,jdbcType=VARCHAR},
+		#{news3,jdbcType=VARCHAR}, #{newsneirong,jdbcType=LONGVARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="cn.whm.entity.News">
+		insert into news
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="newsid != null">
+				newsid,
+			</if>
+			<if test="newstitle != null">
+				newstitle,
+			</if>
+			<if test="newstime != null">
+				newstime,
+			</if>
+			<if test="newslaiyuan != null">
+				newslaiyuan,
+			</if>
+			<if test="newsauthor != null">
+				newsauthor,
+			</if>
+			<if test="newsphoto != null">
+				newsphoto,
+			</if>
+			<if test="newstype != null">
+				newstype,
+			</if>
+			<if test="newszebian != null">
+				newszebian,
+			</if>
+			<if test="newsplateid != null">
+				newsplateid,
+			</if>
+			<if test="newspaixu != null">
+				newspaixu,
+			</if>
+			<if test="news1 != null">
+				news1,
+			</if>
+			<if test="nwes2 != null">
+				nwes2,
+			</if>
+			<if test="news3 != null">
+				news3,
+			</if>
+			<if test="newsneirong != null">
+				newsneirong,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="newsid != null">
+				#{newsid,jdbcType=INTEGER},
+			</if>
+			<if test="newstitle != null">
+				#{newstitle,jdbcType=VARCHAR},
+			</if>
+			<if test="newstime != null">
+				#{newstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="newslaiyuan != null">
+				#{newslaiyuan,jdbcType=VARCHAR},
+			</if>
+			<if test="newsauthor != null">
+				#{newsauthor,jdbcType=VARCHAR},
+			</if>
+			<if test="newsphoto != null">
+				#{newsphoto,jdbcType=VARCHAR},
+			</if>
+			<if test="newstype != null">
+				#{newstype,jdbcType=VARCHAR},
+			</if>
+			<if test="newszebian != null">
+				#{newszebian,jdbcType=VARCHAR},
+			</if>
+			<if test="newsplateid != null">
+				#{newsplateid,jdbcType=INTEGER},
+			</if>
+			<if test="newspaixu != null">
+				#{newspaixu,jdbcType=INTEGER},
+			</if>
+			<if test="news1 != null">
+				#{news1,jdbcType=VARCHAR},
+			</if>
+			<if test="nwes2 != null">
+				#{nwes2,jdbcType=VARCHAR},
+			</if>
+			<if test="news3 != null">
+				#{news3,jdbcType=VARCHAR},
+			</if>
+			<if test="newsneirong != null">
+				#{newsneirong,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.whm.entity.News">
+		update news
+		<set>
+			<if test="newstitle != null">
+				newstitle = #{newstitle,jdbcType=VARCHAR},
+			</if>
+			<if test="newstime != null">
+				newstime = #{newstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="newslaiyuan != null">
+				newslaiyuan = #{newslaiyuan,jdbcType=VARCHAR},
+			</if>
+			<if test="newsauthor != null">
+				newsauthor = #{newsauthor,jdbcType=VARCHAR},
+			</if>
+			<if test="newsphoto != null">
+				newsphoto = #{newsphoto,jdbcType=VARCHAR},
+			</if>
+			<if test="newstype != null">
+				newstype = #{newstype,jdbcType=VARCHAR},
+			</if>
+			<if test="newszebian != null">
+				newszebian = #{newszebian,jdbcType=VARCHAR},
+			</if>
+			<if test="newsplateid != null">
+				newsplateid = #{newsplateid,jdbcType=INTEGER},
+			</if>
+			<if test="newspaixu != null">
+				newspaixu = #{newspaixu,jdbcType=INTEGER},
+			</if>
+			<if test="news1 != null">
+				news1 = #{news1,jdbcType=VARCHAR},
+			</if>
+			<if test="nwes2 != null">
+				nwes2 = #{nwes2,jdbcType=VARCHAR},
+			</if>
+			<if test="news3 != null">
+				news3 = #{news3,jdbcType=VARCHAR},
+			</if>
+			<if test="newsneirong != null">
+				newsneirong = #{newsneirong,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where newsid = #{newsid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs"
+		parameterType="cn.whm.entity.News">
+		update news
+		set newstitle = #{newstitle,jdbcType=VARCHAR},
+		newstime = #{newstime,jdbcType=TIMESTAMP},
+		newslaiyuan = #{newslaiyuan,jdbcType=VARCHAR},
+		newsauthor = #{newsauthor,jdbcType=VARCHAR},
+		newsphoto = #{newsphoto,jdbcType=VARCHAR},
+		newstype = #{newstype,jdbcType=VARCHAR},
+		newszebian = #{newszebian,jdbcType=VARCHAR},
+		newsplateid = #{newsplateid,jdbcType=INTEGER},
+		newspaixu = #{newspaixu,jdbcType=INTEGER},
+		news1 = #{news1,jdbcType=VARCHAR},
+		nwes2 = #{nwes2,jdbcType=VARCHAR},
+		news3 = #{news3,jdbcType=VARCHAR},
+		newsneirong = #{newsneirong,jdbcType=LONGVARCHAR}
+		where newsid = #{newsid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="cn.whm.entity.News">
+		update news
+		set newstitle = #{newstitle,jdbcType=VARCHAR},
+		newstime = #{newstime,jdbcType=TIMESTAMP},
+		newslaiyuan = #{newslaiyuan,jdbcType=VARCHAR},
+		newsauthor = #{newsauthor,jdbcType=VARCHAR},
+		newsphoto = #{newsphoto,jdbcType=VARCHAR},
+		newstype = #{newstype,jdbcType=VARCHAR},
+		newszebian = #{newszebian,jdbcType=VARCHAR},
+		newsplateid = #{newsplateid,jdbcType=INTEGER},
+		newspaixu = #{newspaixu,jdbcType=INTEGER},
+		news1 = #{news1,jdbcType=VARCHAR},
+		nwes2 = #{nwes2,jdbcType=VARCHAR},
+		news3 = #{news3,jdbcType=VARCHAR}
+		where newsid = #{newsid,jdbcType=INTEGER}
+	</update>
+</mapper>

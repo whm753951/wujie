@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.AdminMapper">
+  <resultMap id="BaseResultMap" type="cn.whm.entity.Admin">
+    <id column="adminid" jdbcType="INTEGER" property="adminid" />
+    <result column="adminname" jdbcType="VARCHAR" property="adminname" />
+    <result column="adminpassword" jdbcType="VARCHAR" property="adminpassword" />
+    <result column="admintextname" jdbcType="VARCHAR" property="admintextname" />
+    <result column="admin1" jdbcType="VARCHAR" property="admin1" />
+    <result column="admin2" jdbcType="VARCHAR" property="admin2" />
+    <result column="admin3" jdbcType="VARCHAR" property="admin3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    adminid, adminname, adminpassword, admintextname, admin1, admin2, admin3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where adminid = #{adminid,jdbcType=INTEGER}
+  </select>
+    <select id="loginAdmin" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where adminname = #{adminname,jdbcType=VARCHAR} and adminpassword = #{adminpassword,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from admin
+    where adminid = #{adminid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.whm.entity.Admin">
+    insert into admin (adminid, adminname, adminpassword, 
+      admintextname, admin1, admin2, 
+      admin3)
+    values (#{adminid,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{adminpassword,jdbcType=VARCHAR}, 
+      #{admintextname,jdbcType=VARCHAR}, #{admin1,jdbcType=VARCHAR}, #{admin2,jdbcType=VARCHAR}, 
+      #{admin3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.whm.entity.Admin">
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adminid != null">
+        adminid,
+      </if>
+      <if test="adminname != null">
+        adminname,
+      </if>
+      <if test="adminpassword != null">
+        adminpassword,
+      </if>
+      <if test="admintextname != null">
+        admintextname,
+      </if>
+      <if test="admin1 != null">
+        admin1,
+      </if>
+      <if test="admin2 != null">
+        admin2,
+      </if>
+      <if test="admin3 != null">
+        admin3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adminid != null">
+        #{adminid,jdbcType=INTEGER},
+      </if>
+      <if test="adminname != null">
+        #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="adminpassword != null">
+        #{adminpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="admintextname != null">
+        #{admintextname,jdbcType=VARCHAR},
+      </if>
+      <if test="admin1 != null">
+        #{admin1,jdbcType=VARCHAR},
+      </if>
+      <if test="admin2 != null">
+        #{admin2,jdbcType=VARCHAR},
+      </if>
+      <if test="admin3 != null">
+        #{admin3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.whm.entity.Admin">
+    update admin
+    <set>
+      <if test="adminname != null">
+        adminname = #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="adminpassword != null">
+        adminpassword = #{adminpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="admintextname != null">
+        admintextname = #{admintextname,jdbcType=VARCHAR},
+      </if>
+      <if test="admin1 != null">
+        admin1 = #{admin1,jdbcType=VARCHAR},
+      </if>
+      <if test="admin2 != null">
+        admin2 = #{admin2,jdbcType=VARCHAR},
+      </if>
+      <if test="admin3 != null">
+        admin3 = #{admin3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where adminid = #{adminid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.whm.entity.Admin">
+    update admin
+    set adminname = #{adminname,jdbcType=VARCHAR},
+      adminpassword = #{adminpassword,jdbcType=VARCHAR},
+      admintextname = #{admintextname,jdbcType=VARCHAR},
+      admin1 = #{admin1,jdbcType=VARCHAR},
+      admin2 = #{admin2,jdbcType=VARCHAR},
+      admin3 = #{admin3,jdbcType=VARCHAR}
+    where adminid = #{adminid,jdbcType=INTEGER}
+  </update>
+</mapper>

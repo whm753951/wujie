@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.PaperMapper">
+  <resultMap id="BaseResultMap" type="cn.whm.entity.Paper">
+    <id column="paperid" jdbcType="INTEGER" property="paperid" />
+    <result column="papertitle" jdbcType="VARCHAR" property="papertitle" />
+    <result column="papertime" jdbcType="TIMESTAMP" property="papertime" />
+    <result column="paper1" jdbcType="VARCHAR" property="paper1" />
+    <result column="paper2" jdbcType="VARCHAR" property="paper2" />
+    <result column="paper3" jdbcType="VARCHAR" property="paper3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    paperid, papertitle, papertime, paper1, paper2, paper3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from paper
+    where paperid = #{paperid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllPaper"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from paper
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from paper
+    where paperid = #{paperid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.whm.entity.Paper">
+    insert into paper (paperid, papertitle, papertime, 
+      paper1, paper2, paper3
+      )
+    values (#{paperid,jdbcType=INTEGER}, #{papertitle,jdbcType=VARCHAR}, #{papertime,jdbcType=TIMESTAMP}, 
+      #{paper1,jdbcType=VARCHAR}, #{paper2,jdbcType=VARCHAR}, #{paper3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.whm.entity.Paper">
+    insert into paper
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paperid != null">
+        paperid,
+      </if>
+      <if test="papertitle != null">
+        papertitle,
+      </if>
+      <if test="papertime != null">
+        papertime,
+      </if>
+      <if test="paper1 != null">
+        paper1,
+      </if>
+      <if test="paper2 != null">
+        paper2,
+      </if>
+      <if test="paper3 != null">
+        paper3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paperid != null">
+        #{paperid,jdbcType=INTEGER},
+      </if>
+      <if test="papertitle != null">
+        #{papertitle,jdbcType=VARCHAR},
+      </if>
+      <if test="papertime != null">
+        #{papertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paper1 != null">
+        #{paper1,jdbcType=VARCHAR},
+      </if>
+      <if test="paper2 != null">
+        #{paper2,jdbcType=VARCHAR},
+      </if>
+      <if test="paper3 != null">
+        #{paper3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.whm.entity.Paper">
+    update paper
+    <set>
+      <if test="papertitle != null">
+        papertitle = #{papertitle,jdbcType=VARCHAR},
+      </if>
+      <if test="papertime != null">
+        papertime = #{papertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paper1 != null">
+        paper1 = #{paper1,jdbcType=VARCHAR},
+      </if>
+      <if test="paper2 != null">
+        paper2 = #{paper2,jdbcType=VARCHAR},
+      </if>
+      <if test="paper3 != null">
+        paper3 = #{paper3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where paperid = #{paperid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.whm.entity.Paper">
+    update paper
+    set papertitle = #{papertitle,jdbcType=VARCHAR},
+      papertime = #{papertime,jdbcType=TIMESTAMP},
+      paper1 = #{paper1,jdbcType=VARCHAR},
+      paper2 = #{paper2,jdbcType=VARCHAR},
+      paper3 = #{paper3,jdbcType=VARCHAR}
+    where paperid = #{paperid,jdbcType=INTEGER}
+  </update>
+</mapper>

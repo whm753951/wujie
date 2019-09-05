@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.WorkMapper">
+	<resultMap id="BaseResultMap" type="cn.whm.entity.Work">
+		<id column="workid" jdbcType="INTEGER" property="workid" />
+		<result column="workname" jdbcType="VARCHAR"
+			property="workname" />
+		<result column="workbianhao" jdbcType="VARCHAR"
+			property="workbianhao" />
+		<result column="workplane" jdbcType="VARCHAR"
+			property="workplane" />
+		<result column="workerweima" jdbcType="VARCHAR"
+			property="workerweima" />
+		<result column="workzhengshuphoto" jdbcType="VARCHAR"
+			property="workzhengshuphoto" />
+		<result column="work1" jdbcType="VARCHAR" property="work1" />
+		<result column="work2" jdbcType="VARCHAR" property="work2" />
+		<result column="work3" jdbcType="VARCHAR" property="work3" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		workid, workname, workbianhao, workplane, workerweima, workzhengshuphoto,
+		work1,
+		work2, work3
+	</sql>
+	<select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from work
+		where workid = #{workid,jdbcType=INTEGER}
+	</select>
+	<select id="selectByNameAndBianhao"
+		parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from work
+		where workname = #{workname,jdbcType=VARCHAR} and workbianhao = #{workbianhao,jdbcType=VARCHAR} 
+	</select>
+	<select id="selectWorkByBianhao"
+		parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from work
+		where  workbianhao = #{workbianhao,jdbcType=VARCHAR} 
+	</select>
+	<select id="selectWorkByPage" resultMap="BaseResultMap"
+		parameterType="cn.whm.util.Page">
+		select
+		<include refid="Base_Column_List" />
+		from work LIMIT #{firstIndex},#{totalSize}
+	</select>
+	<select id="countWorkBypage" resultMap="java.lang.Integer">
+		select
+		count(*)
+		from work
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from work
+		where workid = #{workid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="cn.whm.entity.Work">
+		insert into work (workid, workname, workbianhao,
+		workplane, workerweima, workzhengshuphoto,
+		work1, work2, work3
+		)
+		values (#{workid,jdbcType=INTEGER}, #{workname,jdbcType=VARCHAR},
+		#{workbianhao,jdbcType=VARCHAR},
+		#{workplane,jdbcType=VARCHAR}, #{workerweima,jdbcType=VARCHAR},
+		#{workzhengshuphoto,jdbcType=VARCHAR},
+		#{work1,jdbcType=VARCHAR}, #{work2,jdbcType=VARCHAR}, #{work3,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="cn.whm.entity.Work">
+		insert into work
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="workid != null">
+				workid,
+			</if>
+			<if test="workname != null">
+				workname,
+			</if>
+			<if test="workbianhao != null">
+				workbianhao,
+			</if>
+			<if test="workplane != null">
+				workplane,
+			</if>
+			<if test="workerweima != null">
+				workerweima,
+			</if>
+			<if test="workzhengshuphoto != null">
+				workzhengshuphoto,
+			</if>
+			<if test="work1 != null">
+				work1,
+			</if>
+			<if test="work2 != null">
+				work2,
+			</if>
+			<if test="work3 != null">
+				work3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="workid != null">
+				#{workid,jdbcType=INTEGER},
+			</if>
+			<if test="workname != null">
+				#{workname,jdbcType=VARCHAR},
+			</if>
+			<if test="workbianhao != null">
+				#{workbianhao,jdbcType=VARCHAR},
+			</if>
+			<if test="workplane != null">
+				#{workplane,jdbcType=VARCHAR},
+			</if>
+			<if test="workerweima != null">
+				#{workerweima,jdbcType=VARCHAR},
+			</if>
+			<if test="workzhengshuphoto != null">
+				#{workzhengshuphoto,jdbcType=VARCHAR},
+			</if>
+			<if test="work1 != null">
+				#{work1,jdbcType=VARCHAR},
+			</if>
+			<if test="work2 != null">
+				#{work2,jdbcType=VARCHAR},
+			</if>
+			<if test="work3 != null">
+				#{work3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.whm.entity.Work">
+		update work
+		<set>
+			<if test="workname != null">
+				workname = #{workname,jdbcType=VARCHAR},
+			</if>
+			<if test="workbianhao != null">
+				workbianhao = #{workbianhao,jdbcType=VARCHAR},
+			</if>
+			<if test="workplane != null">
+				workplane = #{workplane,jdbcType=VARCHAR},
+			</if>
+			<if test="workerweima != null">
+				workerweima = #{workerweima,jdbcType=VARCHAR},
+			</if>
+			<if test="workzhengshuphoto != null">
+				workzhengshuphoto = #{workzhengshuphoto,jdbcType=VARCHAR},
+			</if>
+			<if test="work1 != null">
+				work1 = #{work1,jdbcType=VARCHAR},
+			</if>
+			<if test="work2 != null">
+				work2 = #{work2,jdbcType=VARCHAR},
+			</if>
+			<if test="work3 != null">
+				work3 = #{work3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where workid = #{workid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="cn.whm.entity.Work">
+		update work
+		set workname = #{workname,jdbcType=VARCHAR},
+		workbianhao = #{workbianhao,jdbcType=VARCHAR},
+		workplane = #{workplane,jdbcType=VARCHAR},
+		workerweima = #{workerweima,jdbcType=VARCHAR},
+		workzhengshuphoto = #{workzhengshuphoto,jdbcType=VARCHAR},
+		work1 = #{work1,jdbcType=VARCHAR},
+		work2 = #{work2,jdbcType=VARCHAR},
+		work3 = #{work3,jdbcType=VARCHAR}
+		where workid = #{workid,jdbcType=INTEGER}
+	</update>
+</mapper>

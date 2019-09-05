@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.whm.dao.LianjieMapper">
+  <resultMap id="BaseResultMap" type="cn.whm.entity.Lianjie">
+    <id column="lianjieid" jdbcType="INTEGER" property="lianjieid" />
+    <result column="lianjiename" jdbcType="VARCHAR" property="lianjiename" />
+    <result column="lianjieplane" jdbcType="VARCHAR" property="lianjieplane" />
+    <result column="lianjietype" jdbcType="INTEGER" property="lianjietype" />
+    <result column="lianjie1" jdbcType="VARCHAR" property="lianjie1" />
+    <result column="lianjie2" jdbcType="VARCHAR" property="lianjie2" />
+    <result column="lianjie3" jdbcType="VARCHAR" property="lianjie3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    lianjieid, lianjiename, lianjieplane, lianjietype, lianjie1, lianjie2, lianjie3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lianjie
+    where lianjieid = #{lianjieid,jdbcType=INTEGER}
+  </select>
+  <select id="findlianjieBytype" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lianjie
+    where lianjietype = #{type,jdbcType=INTEGER}
+  </select>
+  <select id="findalllianjie"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lianjie
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lianjie
+    where lianjieid = #{lianjieid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.whm.entity.Lianjie">
+    insert into lianjie (lianjieid, lianjiename, lianjieplane, 
+      lianjietype, lianjie1, lianjie2, 
+      lianjie3)
+    values (#{lianjieid,jdbcType=INTEGER}, #{lianjiename,jdbcType=VARCHAR}, #{lianjieplane,jdbcType=VARCHAR}, 
+      #{lianjietype,jdbcType=INTEGER}, #{lianjie1,jdbcType=VARCHAR}, #{lianjie2,jdbcType=VARCHAR}, 
+      #{lianjie3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.whm.entity.Lianjie">
+    insert into lianjie
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lianjieid != null">
+        lianjieid,
+      </if>
+      <if test="lianjiename != null">
+        lianjiename,
+      </if>
+      <if test="lianjieplane != null">
+        lianjieplane,
+      </if>
+      <if test="lianjietype != null">
+        lianjietype,
+      </if>
+      <if test="lianjie1 != null">
+        lianjie1,
+      </if>
+      <if test="lianjie2 != null">
+        lianjie2,
+      </if>
+      <if test="lianjie3 != null">
+        lianjie3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lianjieid != null">
+        #{lianjieid,jdbcType=INTEGER},
+      </if>
+      <if test="lianjiename != null">
+        #{lianjiename,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjieplane != null">
+        #{lianjieplane,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjietype != null">
+        #{lianjietype,jdbcType=INTEGER},
+      </if>
+      <if test="lianjie1 != null">
+        #{lianjie1,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjie2 != null">
+        #{lianjie2,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjie3 != null">
+        #{lianjie3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.whm.entity.Lianjie">
+    update lianjie
+    <set>
+      <if test="lianjiename != null">
+        lianjiename = #{lianjiename,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjieplane != null">
+        lianjieplane = #{lianjieplane,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjietype != null">
+        lianjietype = #{lianjietype,jdbcType=INTEGER},
+      </if>
+      <if test="lianjie1 != null">
+        lianjie1 = #{lianjie1,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjie2 != null">
+        lianjie2 = #{lianjie2,jdbcType=VARCHAR},
+      </if>
+      <if test="lianjie3 != null">
+        lianjie3 = #{lianjie3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lianjieid = #{lianjieid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.whm.entity.Lianjie">
+    update lianjie
+    set lianjiename = #{lianjiename,jdbcType=VARCHAR},
+      lianjieplane = #{lianjieplane,jdbcType=VARCHAR},
+      lianjietype = #{lianjietype,jdbcType=INTEGER},
+      lianjie1 = #{lianjie1,jdbcType=VARCHAR},
+      lianjie2 = #{lianjie2,jdbcType=VARCHAR},
+      lianjie3 = #{lianjie3,jdbcType=VARCHAR}
+    where lianjieid = #{lianjieid,jdbcType=INTEGER}
+  </update>
+</mapper>

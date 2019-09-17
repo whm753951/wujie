@@ -23,7 +23,7 @@
     select 
     <include refid="Base_Column_List" />
     from admin
-    where adminname = #{adminname,jdbcType=VARCHAR} and adminpassword = #{adminpassword,jdbcType=VARCHAR}
+    where adminname = #{0,jdbcType=VARCHAR} and adminpassword = #{1,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin

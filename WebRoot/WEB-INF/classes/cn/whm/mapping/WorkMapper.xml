@@ -49,7 +49,7 @@
 		<include refid="Base_Column_List" />
 		from work LIMIT #{firstIndex},#{totalSize}
 	</select>
-	<select id="countWorkBypage" resultMap="java.lang.Integer">
+	<select id="countWorkBypage"  resultType="java.lang.Integer">
 		select
 		count(*)
 		from work

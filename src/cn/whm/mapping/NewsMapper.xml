@@ -55,7 +55,7 @@
 		<include refid="Blob_Column_List" />
 		from news LIMIT #{firstIndex},#{totalSize}
 	</select>
-	<select id="countNewsBypage"  resultMap="java.lang.Integer">
+	<select id="countNewsBypage"  resultType="java.lang.Integer">
 		select
 		count(*)
 		from news

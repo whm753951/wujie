@@ -1,0 +1,141 @@
+/* 导航 */
+.bai-red{
+	width: 100%;
+	height: 1px;
+	border: 1px solid red;
+	background-color: red;
+	margin-top: 90px;
+}
+.hid1{
+	visibility:hidden;
+}
+
+.nav{
+	margin: auto;
+	width: 1200px;
+	height: 112px;
+	
+}
+.logoImg{
+	margin-top: 10px;
+}
+.nav ul li{	
+	margin-right: 55px;
+	line-height: 112px;
+}
+.nav ul li span{
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.bo-red{
+	display: inline-block;
+	width: 98px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 16px;
+	color: red;
+	border: 1px solid red;
+	border-radius: 20px;
+}
+.nav-ch,.nav-ch1{
+	position: fixed;
+	top: 200px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 1px;
+	background-color: #e5e5e5;
+}
+.nav-ch span,.nav-ch1 span{
+	padding: 0 47px;
+	border-right: 2px solid #000000;
+}
+.nav-ch a:hover{
+	color: red;
+}
+.nav-ch1 a:hover{
+	color: red;
+}
+/* 大图 */
+.ourImg{
+	width: 100%;
+	height: 600px;
+	margin-top: 20px;
+	background: url(../img/ourimg.png) no-repeat;
+}
+/* 关于我们标题 */
+.our-tit{
+	width: 825px;
+	height: 67px;
+	margin: auto;
+	margin-top: 100px;
+	background: url(../img/ourtit.png) no-repeat;
+}
+/* 关于我们内容 */
+.our{
+	width: 1200px;
+	height: 870px;
+	margin: auto;
+	margin-top: 60px;	
+}
+.ourLeft,.ourRight{
+	width: 600px;
+	height: 870px;
+}
+.ourLeft div{
+	margin-top: 45px;
+	margin-right: 42px;
+}
+.ourLeft p,.ourRight p{
+	text-indent: 28px;
+	font-size: 14px;
+	line-height: 1.5;
+}
+.ourRight div{
+	margin: 25px 0 25px 42px;
+	
+}
+/* 尾部 */
+.footer{
+	width: 1920px;
+	height: 330px;
+	background-color: #1a2228;
+	margin-top: 190px;
+	border: 1px solid #1a2228;
+}
+.footer-1{
+	margin-left: 490px;
+	margin-top: 60px;
+}
+.footer-1 ul li a{
+	color: #fff;
+	margin-right: 50px;
+}
+.footer-1 ul li a:hover{
+	color: #FF0000;
+}
+.footer-2{
+	margin-left: 365px;
+	margin-top: 67px;
+}
+.footer-3{
+	color: #fff;
+	margin-top: 20px;
+	font-size: 12px;
+	text-align: center;
+}
+.footer-4{
+	width: 600px;
+	margin: auto;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.aa{
+	padding: 0 50px;
+	font-weight: bold;
+}

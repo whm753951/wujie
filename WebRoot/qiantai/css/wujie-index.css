@@ -1,0 +1,174 @@
+.bai-red{
+	width: 100%;
+	height: 1px;
+	border: 1px solid red;
+	background-color: red;
+	margin-top: 90px;
+}
+
+.nav{
+	margin: auto;
+	width: 1200px;
+	height: 112px;
+	
+}
+.logoImg{
+	margin-top: 10px;
+}
+.nav ul li{	
+	margin-right: 55px;
+	line-height: 112px;
+}
+.nav ul li span{
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.bo-red{
+	display: inline-block;
+	width: 98px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 16px;
+	color: red;
+	border: 1px solid red;
+	border-radius: 20px;
+}
+.nav-ch,.nav-ch1{
+	position: fixed;
+	top: 200px;
+	z-index: 999999;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 1px;
+	background-color: #e5e5e5;
+}
+.nav-ch span,.nav-ch1 span{
+	padding: 0 47px;
+	border-right: 2px solid #000000;
+}
+.nav-ch a:hover{
+	color: red;
+}
+.nav-ch1 a:hover{
+	color: red;
+}
+#no-x span{
+	border: 0;
+}
+
+.new-box{
+	width: 1200px;
+	margin:50px auto;
+}
+/* 左边的新闻块 */
+.newleft-box{
+	width: 573px;
+}
+/* 右边的新闻块 */
+.newright-box{
+	width: 573px;
+}
+/* 广告位 */
+.guanggao{
+	margin:47px auto;
+	width: 1200px;
+	height: 150px;
+}
+/* 时政要闻 */
+.box-1{
+	padding-bottom: 57px;
+}
+.newtit{
+	width: 100%;
+	height: 60px;
+	background-color: #e5e5e5;
+}
+.newtit img{
+	margin: 12px 20px;
+}
+.newtit span{
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 60px;
+}
+
+.newcon .newbigimg{
+	margin: 20px 0;
+}
+.newcon ul li{
+	margin: 10px 0;
+}
+.newcon ul li img{
+	margin: 5px 20px 0 30px;
+}
+.newcon ul li span{
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+
+/* 友情链接 */
+.toOther{
+	width: 1200px;
+	margin: auto;
+}
+.toOther-con{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 1px;
+}
+.toOther-con span{
+	padding: 0 47px;
+	border-right: 2px solid #000000;
+}
+.toOther-con a:hover{
+	color: red;
+}
+
+/* 尾部 */
+.footer{
+	width: 1920px;
+	height: 330px;
+	background-color: #1a2228;
+	margin-top: 90px;
+	border: 1px solid #1a2228;
+}
+.footer-1{
+	margin-left: 490px;
+	margin-top: 60px;
+}
+.footer-1 ul li a{
+	color: #fff;
+	margin-right: 50px;
+}
+.footer-1 ul li a:hover{
+	color: #FF0000;
+}
+.footer-2{
+	margin-left: 365px;
+	margin-top: 67px;
+}
+.footer-3{
+	color: #fff;
+	margin-top: 20px;
+	font-size: 12px;
+	text-align: center;
+}
+.footer-4{
+	width: 600px;
+	margin: auto;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.aa{
+	padding: 0 50px;
+	font-weight: bold;
+}

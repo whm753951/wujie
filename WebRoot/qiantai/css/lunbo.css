@@ -1,0 +1,36 @@
+*{padding:0;margin:0;font-size:14px;font-family: "微软雅黑";}
+ul{list-style: none;}
+.banner{width: 1200px;height: 660px;margin:20px auto;position: relative;overflow: hidden;z-index: 1;}
+.img{position: absolute;top: 0;left: 0;}
+.des{position: absolute;bottom: 0;left: 0;z-index: -2;background: rgba(0,0,0,.4)}
+.des li{float: left;width: 1200px;}
+.img li{float: left;}
+.num{position: absolute;bottom: 10px;width: 100%;text-align: center;font-size: 0;}
+.num li{width: 10px;height: 10px;background:rgba(0,0,0,0.5);border-radius: 100%;display: inline-block;margin: 0 5px;cursor: pointer;}
+/* .btn{display: none;} */
+.btn span{display: block;height: 100px;cursor:pointer;}
+.btn .prev{position: absolute;left: 0;top: 50%;margin-top: -50px;}
+.btn .next{position: absolute;right: 0;top: 50%;margin-top: -50px;}
+.num .active{background-color: #fff;}
+.hide{display: none;}
+
+.new-tit{
+	position: relative;
+	width: 1200px;
+	height: 30px;
+
+}
+.new-tit p{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1200px;
+	height: 98px;
+	background-color: #000;
+	color: #FFFFFF;
+	cursor: pointer;
+	opacity: 0.5;
+	line-height: 98px;
+	text-align: center;
+	font-size: 30px;
+}

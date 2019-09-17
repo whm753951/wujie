@@ -1,0 +1,171 @@
+/* 导航 */
+.bai-red{
+	width: 100%;
+	height: 1px;
+	border: 1px solid red;
+	background-color: red;
+	margin-top: 90px;
+}
+.hid1{
+	visibility:hidden;
+}
+
+.nav{
+	margin: auto;
+	width: 1200px;
+	height: 112px;
+	
+}
+.logoImg{
+	margin-top: 10px;
+}
+.nav ul li{	
+	margin-right: 55px;
+	line-height: 112px;
+}
+.nav ul li span{
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.bo-red{
+	display: inline-block;
+	width: 98px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 16px;
+	color: red;
+	border: 1px solid red;
+	border-radius: 20px;
+}
+.nav-ch,.nav-ch1{
+	position: fixed; 
+	top: 200px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 1px;
+	background-color: #e5e5e5;
+}
+.nav-ch span,.nav-ch1 span{
+	padding: 0 47px;
+	border-right: 2px solid #000000;
+}
+.nav-ch a:hover{
+	color: red;
+}
+.nav-ch1 a:hover{
+	color: red;
+}
+/* 大图 */
+.ourImg{
+	width: 100%;
+	height: 600px;
+	margin-top: 20px;
+	background: url(../img/ourimg.png) no-repeat;
+}
+/* 加入我们标题 */
+.our-tit{
+	width: 825px;
+	height: 67px;
+	margin: auto;
+	margin-top: 100px;
+	background: url(../img/join.png) no-repeat;
+}
+/* 加入我们内容 */
+.banquan{
+	width: 1200px;
+	margin: auto;
+	margin-top: 75px;
+}
+.banquan .join1{
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+}
+.banquan .join1 p{
+	margin-top: 30px;
+	letter-spacing: 4px;
+}
+.join2{
+	margin-top: 70px;
+}
+.join2 .join-left{
+	width: 585px;
+}
+.join2 .join-right{
+	width: 615px;
+}
+.joinus{
+	margin-left: 20px;
+}
+.joinus i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid red;
+	border-radius: 50%;
+}
+.joinus h3{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 24px;
+}
+.joinus ul{
+	border-left:2px solid red ;
+	padding-top: 22px;
+	padding-bottom: 48px;
+	padding-left: 36px;
+	margin-left: 10px;
+	margin-top: -2px;
+}
+.joinus ul li{
+	font-size: 16px;
+	color: #333333;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+/* 尾部 */
+.footer{
+	width: 1920px;
+	height: 330px;
+	background-color: #1a2228;
+	margin-top: 190px;
+	border: 1px solid #1a2228;
+}
+.footer-1{
+	margin-left: 490px;
+	margin-top: 60px;
+}
+.footer-1 ul li a{
+	color: #fff;
+	margin-right: 50px;
+}
+.footer-1 ul li a:hover{
+	color: #FF0000;
+}
+.footer-2{
+	margin-left: 365px;
+	margin-top: 67px;
+}
+.footer-3{
+	color: #fff;
+	margin-top: 20px;
+	font-size: 12px;
+	text-align: center;
+}
+.footer-4{
+	width: 600px;
+	margin: auto;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 1px;
+}
+.aa{
+	padding: 0 50px;
+	font-weight: bold;
+}

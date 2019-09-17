@@ -16,7 +16,7 @@ public class AdminController {
 	AdminService asi;
 	
 	/**
-	 * 管理员登录，测试
+	 * 管理员登录，测试哈哈哈
 	 */
 	@RequestMapping("/loginadmin")
 	@ResponseBody
